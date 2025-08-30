@@ -801,4 +801,10 @@
     <string name="url_template_hint" translatable="false">https://a.tile.openstreetmap.org/{z}/{x}/{y}.png</string>
     <string name="track_point">track point</string>
     <string name="phone_settings">Phone Settings</string>
+    <string name="servo_control_config">Servo Control Config</string>
+    <string name="servo_control_enabled">Servo Control enabled</string>
+    <string name="open_position">OPEN position (degrees)</string>
+    <string name="closed_position">CLOSED position (degrees)</string>
+    <string name="authorized_key">Authorized Key</string>
+    <string name="servo_control">Servo Control</string>
 </resources>

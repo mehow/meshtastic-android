@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.People
 import androidx.compose.material.icons.filled.PermScanWifi
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Power
+import androidx.compose.material.icons.filled.PrecisionManufacturing
 import androidx.compose.material.icons.filled.Router
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Sensors
@@ -79,6 +80,7 @@ import com.geeksville.mesh.ui.settings.radio.components.RangeTestConfigScreen
 import com.geeksville.mesh.ui.settings.radio.components.RemoteHardwareConfigScreen
 import com.geeksville.mesh.ui.settings.radio.components.SecurityConfigScreen
 import com.geeksville.mesh.ui.settings.radio.components.SerialConfigScreen
+import com.geeksville.mesh.ui.settings.radio.components.ServoControlConfigScreen
 import com.geeksville.mesh.ui.settings.radio.components.StoreForwardConfigScreen
 import com.geeksville.mesh.ui.settings.radio.components.TelemetryConfigScreen
 import com.geeksville.mesh.ui.settings.radio.components.UserConfigScreen
@@ -140,6 +142,8 @@ sealed class SettingsRoutes {
     @Serializable data object DetectionSensor : Route
 
     @Serializable data object Paxcounter : Route
+
+    @Serializable data object ServoControl : Route
 
     // endregion
 
@@ -338,6 +342,12 @@ private fun NavGraphBuilder.moduleRoutesScreens(navController: NavHostController
                     entry.name,
                     entry.screenComposable,
                 )
+            is SettingsRoutes.ServoControl ->
+                addRadioConfigScreenComposable<SettingsRoutes.ServoControl>(
+                    navController,
+                    entry.name,
+                    entry.screenComposable,
+                )
             else -> Unit // Should not happen if ModuleRoute enum is exhaustive for this context
         }
     }
@@ -527,6 +537,13 @@ enum class ModuleRoute(
         Icons.Default.PermScanWifi,
         AdminProtos.AdminMessage.ModuleConfigType.PAXCOUNTER_CONFIG_VALUE,
         { vm -> PaxcounterConfigScreen(vm) },
+    ),
+    SERVO_CONTROL(
+        R.string.servo_control,
+        SettingsRoutes.ServoControl,
+        Icons.Default.PrecisionManufacturing,
+        AdminProtos.AdminMessage.ModuleConfigType.SERVO_CONTROL_CONFIG_VALUE,
+        { vm -> ServoControlConfigScreen(vm) },
     ),
     ;
 

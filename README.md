@@ -1,6 +1,3 @@
-<p align="center">
-  <img src=".github/meshtastic_servo.png" alt="Meshtastic + Servo Logo" width="80"/>
-</p>
 <h1 align="center">Meshtastic Android<br>with servo support</h1>
 
 This is a fork of the official Meshtastic Android app, adding support for configuration settings exposed by [my fork](https://github.com/mehow/meshtastic-firmware) of Meshtastic firmware.
